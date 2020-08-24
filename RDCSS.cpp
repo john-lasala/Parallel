@@ -1,7 +1,3 @@
-// John LaSala
-// COP4520, Spring 2020
-// RDCSS - Assignment 3
-
 #include <thread>
 #include <atomic>
 #include <iostream>
