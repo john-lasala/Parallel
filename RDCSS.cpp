@@ -102,21 +102,20 @@ void test() {
     this_thread::sleep_for(chrono::seconds(75));
     *(flag.load()) = true;
 }
-void increment()
-{	
+void increment() {	
 	void* val; 
 	void* current;
-    bool flagVal = 0;
+    	bool flagVal = 0;
 
-    // run while flag is false
+    	// run while flag is false
 	while (!*((bool*)(RDCSSRead((atomic<void*>*) &flag))))
 	{
 		val = RDCSSRead((atomic<void*>*) &counter);
 
         unsigned long long *newVal = static_cast<unsigned long long*>(val);
-        (*newVal)++;
+       	(*newVal)++;
 
-		RDCSS((atomic<void*>*)&flag,(atomic<void*>*) &counter, (void*) flagVal, (void*) val, (void*) *newVal); 
+	RDCSS((atomic<void*>*)&flag,(atomic<void*>*) &counter, (void*) flagVal, (void*) val, (void*) *newVal); 
 	}
 }
 
